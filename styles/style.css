@@ -33,6 +33,7 @@
   background-position: center;
   background-attachment: fixed;
   background-color: var(--background-color);
+  overflow-x: hidden;
   
 }
 
@@ -44,11 +45,12 @@
   justify-content: end;
   font-family: var(--sub-font-family);
   text-transform: uppercase;
-  min-height: 323px; /*Заменить на auto */
+  min-height: clamp(327px, 60vh, 368px); /*Заменить на auto */
   font-weight: 400;
   background-color: var(--background-color);
   border: 2px solid currentColor;
   margin: 100px 0 100px 0;
+  overflow-x: hidden;
 }
 
 .header__section {
@@ -75,10 +77,13 @@
   display: grid;
   gap: 14px;
   position: relative;
+  padding-left:20px ;
 }
 
 .theme-menu__item {
   position: relative;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .button {
@@ -142,12 +147,12 @@
 }
 
 .main {
-
+  overflow-x: hidden;
 }
 
 .main__section-list {
   display: grid;
-  gap: 50px;
+  gap: 49px;
   
 }
 
@@ -155,23 +160,27 @@
   font-size: 18px;
   border: 2px solid currentColor;
   background-color: var(--background-color);
+  overflow-x: hidden;
 }
 
 .main__section-title {
   font-variation-settings: 'wght' var(--title-font-width);
   font-size: 18px;
-  padding: 3px 10px 3px 10px;
+  padding: 4px 10px 3px 10px;
+  line-height: 21.78px;
+  min-height: 31px;
 }
 
 .main__section-image {
   position: relative;
   display: flex;
-  flex-direction: column;
+  background-size:cover ;
   border: 2px solid currentColor;
   border-left: none;
   border-right: none;
-  height: clamp(371px, 100vw, 696px);
-  width: clamp(371px, 100vw, 696px);
+  height: clamp(373px, 100vw, 698px);
+  width: clamp(373px, 100vw, 698px);
+  z-index: 3;
 }
 
 .main__section-image-text {
@@ -193,7 +202,7 @@
 
 
 .image-blackandwight {
-  filter: grayscale(0.8);
+  filter: grayscale(0.7);
 }
 
 .image-saturate {
@@ -230,7 +239,7 @@
   display: flex;
   justify-content: end;
   padding: 25px;
-  padding-top: 0;
+  padding-top: 1px;
   gap: 6px;
 }
 
@@ -537,6 +546,20 @@
   .main__section-image-text {
     right: 13px;
     top: 25px;
+  }
+}
+
+@media (width >= 375px) {
+  :root {
+    --header-title-size: 65px;
+    --header-text-size: 23px;
+  }
+  .main__section-image {
+    display: flex;
+    background-image: cover;
+  }
+  .main__section-text{
+    line-height: 21px;
   }
 }
 
