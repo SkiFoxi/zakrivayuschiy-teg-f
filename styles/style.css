@@ -395,7 +395,7 @@
 } 
 
 
-.footer {
+.main-footer {
   display: grid;
   margin-top: 50px;
   min-width: clamp(306px, auto, 335px);
@@ -404,14 +404,14 @@
 
 }
 
-.footer__button-block {
+.main-footer__button-block {
   position: relative;
   max-width: 360px;
   padding: 0;
   margin: 0;
 }
 
-.footer__button-block:hover::before {  
+.main-footer__button-block:hover::before {  
   content: '';
   position: absolute;
   top: 0;
@@ -427,7 +427,7 @@
   z-index: 1;
 } 
 
-.footer__button-block:not(:hover)::after { 
+.main-footer__button-block:not(:hover)::after { 
   content: '';
   position: absolute;
   top: 0;
@@ -444,7 +444,7 @@
   transform-origin: 0% 100%;
 } 
 
-.footer__button-block:focus {
+.main-footer__button-block:focus {
   outline: none;
   box-shadow: 2px 2px 0 currentColor;
   animation-name: header-animation-button-like-and-memory ;
@@ -453,7 +453,7 @@
   animation-fill-mode: forwards;
 }
 
-.footer__section {
+.main-footer__section {
   display: flex;  /*Поменять в медиа*/
   position: relative;
   background-color: var(--background-color);
@@ -462,7 +462,7 @@
   padding: 15px 20px 15px 20px;
 }
 
-.footer__section-text {
+.main-footer__section-text {
   display: flex;
   font-family: var(--sub-font-family);
   font-weight: 400;
@@ -474,7 +474,7 @@
   z-index: 3;
 }
 
-.footer__section-floppy {
+.main-footer__section-floppy {
   display: flex;
   place-items: center;
   justify-content: center;
@@ -492,43 +492,43 @@
   color: var(--text-color-style)
 }
 
-.footer-dialog{
+.main-footer-dialog{
   background-color: var(--background-color);
   border-color: var(--text-color);
   padding: 30px 42px 30px 42px;
   max-width: clamp(341px, 91vw, 357px);
 }
 
-.footer-dialog::backdrop {
+.main-footer-dialog::backdrop {
   background-color: rgb(0 0 0 / 0.3);
   backdrop-filter: blur(7px);
 } 
 
-.footer__dialog-conteiner {
+.main-footer__dialog-conteiner {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 20px;
   align-items: center;
 }
 
-.footer__dialog-image-conteiner {
+.main-footer__dialog-image-conteiner {
   display: flex;
 }
 
-.footer__dialog-text {
+.main-footer__dialog-text {
   font-family: var(--sub-font-family);
   font-weight: 400;
   font-size: 14px;
   color: var(--text-color);
 }
 
-.footer__dialog-form {
+.main-footer__dialog-form {
   margin-top: 30px;
   display: grid;
   height: 38px;
 }
 
-.footer__dialog-button {
+.main-footer__dialog-button {
   color: var(--text-color);
   background: none;
   font-family: var(--sub-font-family);
@@ -560,6 +560,12 @@
   }
   .main__section-text{
     line-height: 21px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .floppy-favicon rect{
+    fill: #00CC14;
   }
 }
 
