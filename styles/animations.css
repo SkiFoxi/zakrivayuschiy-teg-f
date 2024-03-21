@@ -12,3 +12,112 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+.like-icon {
+    transition-timing-function: linear;
+}
+
+.contour {
+    transition: 0.36s;
+}
+  
+.main-body {
+  fill: var(--background-color);
+  transition: 0.3s;
+}
+  
+.main__section-subbutton:hover .main-body {
+  fill: var(--like-contour-color);
+  transition-delay: 0.05s;
+}  
+
+.main__section-subbutton:active .main-body {
+  fill: var(--like-sparks-color);
+  transition-delay: 0.05s;
+}  
+
+.core {
+  fill: var(--background-color);
+  transition: 0.3s;
+}  
+
+.main__section-subbutton:hover .core {
+  fill: var(--like-contour-color);
+}  
+
+.main__section-subbutton:not(:hover) .core {
+  transition-delay: 0.03s;
+}  
+
+.main__section-subbutton:active .core {
+  fill: var(--like-sparks-color);
+}  
+
+.main__section-subbutton:not(:active) .core {
+  transition-delay: 0.03s;
+}  
+
+.like-icon.is-liked .contour {
+  fill: var(--like-sparks-color);;
+  transition-delay: 0.06s;
+}  
+
+.like-icon.is-liked .main-body {
+  fill: var(--like-sparks-color);;
+  transition-delay: 0.05s;
+}  
+
+.like-icon.is-liked .core {
+  fill: var(--like-sparks-color);
+}  
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon.is-liked .heart {
+  animation-name: animation-like-scale;
+  animation-duration: 0.3s;
+  animation-direction: alternate;
+  animation-delay: 0.1s;
+  animation-timing-function: ease-in;
+  transform-origin: 50% 50%;
+} 
+
+.like-icon.is-liked .sparks{
+  animation-name: animation-like-sparks;
+  animation-direction: alternate;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+} 
+  
+@keyframes header-animation-arrow {
+  0% {
+    left: -20px;
+  }
+
+  100% {
+    left: -24px;
+  }
+}
+
+@keyframes animation-like-scale {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes animation-like-sparks {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

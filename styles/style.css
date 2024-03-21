@@ -15,16 +15,14 @@
 .page {
   display: grid;
   box-sizing: border-box;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: auto;
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
   height: 100%; 
-  width: clamp(375px, 100vw, 700px);
+  width: clamp(375px, 100%, 700px);
   font-family: var(--main-font-family);
   font-variation-settings: 'wght' var(--text-font-width);
   color: var(--text-color);
-  overflow-x: hidden;
   background-image: 
     repeating-linear-gradient(to right ,var(--background-gradient-subcolor) 0, var(--background-gradient-subcolor) 2px, transparent 2px, transparent 4px),
     repeating-linear-gradient(var(--background-gradient-subcolor) 0, var(--background-gradient-subcolor) 2px, transparent 2px, transparent 4px),
@@ -33,8 +31,7 @@
   background-position: center;
   background-attachment: fixed;
   background-color: var(--background-color);
-  overflow-x: hidden;
-  
+  overflow: scroll;
 }
 
 .header {
@@ -45,12 +42,12 @@
   justify-content: end;
   font-family: var(--sub-font-family);
   text-transform: uppercase;
-  min-height: clamp(327px, 60vh, 368px); /*Заменить на auto */
+  padding-top: 136px;
   font-weight: 400;
   background-color: var(--background-color);
   border: 2px solid currentColor;
   margin: 100px 0 100px 0;
-  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .header__section {
@@ -93,51 +90,52 @@
   font-family: var(--sub-font-family);
 }
 
-.theme-menu__button {
+.theme-menu__button { /*кнопка для анимации*/
   position: relative;
   text-transform: uppercase;
   padding: 0;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  opacity: 1; 
 }
 
 .theme-menu__button:hover {
-  animation-name: header-animation;
-  animation-duration: 0.3s;
-  animation-iteration-count: ease;
-  animation-fill-mode: forwards;
+  opacity: 0.6;
 }
 
-.theme-menu__button:disabled {/* анимация в header*/
-  pointer-events: none;
-  animation-name: header-animation;
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
+.theme-menu__button:disabled {/* анимация прозрачности*/
+  opacity: 0.6;
 }
 
 .theme-menu__button:focus {
   outline: none;
   opacity: 0.6;
 }
- 
-.theme-menu__button:focus-visible::before {
+
+.theme-menu__button::after{ /*анимация линии :focus-visible*/
   content: '';
   position: absolute;
-  border-bottom: 2px solid currentColor;
   top: 2px;
   left: 0;
   width: 100%;
   height: 100%;
-  animation-name: header-animation-focus;
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
+  border-bottom: 2px solid currentColor;
+  opacity: 0.6;
+  transform: scaleX(0);
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
   transform-origin: 0% 100%;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .theme-menu__button:disabled::before {
   content: '▶';
   display: inline-block;
   position: absolute;
+  top: 0;
   left: -20px;
   animation-name: header-animation-arrow;
   animation-duration: 0.5s;
@@ -147,7 +145,7 @@
 }
 
 .main {
-  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .main__section-list {
@@ -160,15 +158,13 @@
   font-size: 18px;
   border: 2px solid currentColor;
   background-color: var(--background-color);
-  overflow-x: hidden;
 }
 
 .main__section-title {
   font-variation-settings: 'wght' var(--title-font-width);
   font-size: 18px;
-  padding: 4px 10px 3px 10px;
+  padding: 3px 10px 3px 10px;
   line-height: 21.78px;
-  min-height: 31px;
 }
 
 .main__section-image {
@@ -178,8 +174,7 @@
   border: 2px solid currentColor;
   border-left: none;
   border-right: none;
-  height: clamp(373px, 100vw, 698px);
-  width: clamp(373px, 100vw, 698px);
+  height: clamp(373px, 100vw, 700px);
   z-index: 3;
 }
 
@@ -244,6 +239,7 @@
 }
 
 .main__section-subbutton {
+  position: relative;
   padding: 0;
 }
 
@@ -251,84 +247,22 @@
   outline: none;
 }
 
-.main__section-subbutton:focus-visible {
+.main__section-subbutton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: 2px solid currentColor;
-}
-
-.contour {
-  transition: 0.3s;
-}
-
-.main-body {
-  fill: var(--background-color);
-  transition: 0.3s;
-}
-
-.main__section-subbutton:hover .main-body {
-  fill: var(--like-contour-color);
-  transition-delay: 0.05s;
-}
-
-.main__section-subbutton:active .main-body {
-  fill: var(--like-sparks-color);
-  transition-delay: 0.05s;
-}
-
-.core {
-  fill: var(--background-color);
-  transition: 0.3s;
-}
-
-.main__section-subbutton:hover .core {
-  fill: var(--like-contour-color);
-}
-
-.main__section-subbutton:not(:hover) .core {
-  transition-delay: 0.03s;
-}
-
-.main__section-subbutton:active .core {
-  fill: var(--like-sparks-color);
-}
-
-.main__section-subbutton:not(:active) .core {
-  transition-delay: 0.03s;
-}
-
-
-.like-icon.is-liked .contour {
-  fill: var(--like-sparks-color);;
-  transition-delay: 0.06s;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--like-sparks-color);;
-  transition-delay: 0.05s;
-}
-
-.like-icon.is-liked .core {
-  fill: var(--like-sparks-color);
-}
-
-.sparks {
   opacity: 0;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
-/*animation-like-sparks*/
-
-.like-icon.is-liked .heart {
-  animation-name: animation-like-scale;
-  animation-duration: 0.3s;
-  animation-delay: 0.1s;
-  animation-timing-function: ease-in;
-  transform-origin: 50% 50%;
+.main__section-subbutton:focus-visible::after {
+  opacity: 1;
 }
-
-.like-icon.is-liked .sparks{
-  animation-name: animation-like-sparks;
-  animation-duration: 0.3s;
-  animation-delay: 0.3s;
-  animation-timing-function: ease-in;
-}
+/*Тут были стили для лайка*/
 
 .main__section-button {
   position: relative;
@@ -349,19 +283,23 @@
   color: var(--text-color-style);
 }
 
-.main__section-button:focus { /*Анимация кнопки лайка*/
+.main__section-button {
+}
+
+.button-animation-like-and-memory {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.button-animation-like-and-memory:focus { /*Анимация кнопки лайка и футера*/
   outline: none;
 }
 
-.main__section-button:focus-visible {
-  box-shadow: 2px 2px 0 currentColor;
-  animation-name: header-animation-button-like-and-memory ;
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
+.button-animation-like-and-memory:focus-visible{
+    box-shadow: 2px 2px 0 currentColor;
 }
 
-.main__section-button:hover::before { 
+.button-animation-like-and-memory::after {
   content: '';
   position: absolute;
   top: 0;
@@ -370,30 +308,14 @@
   height: 100%;
   background-color: currentColor;
   transform-origin: 0% 100%;
-  animation-name: animation-background-button-hover;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-direction: alternate;
-  animation-fill-mode: forwards; 
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transform: scaleX(0);
 }
 
-.main__section-button:not(:hover)::after {  
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: currentColor;
-  z-index: 1;
-  animation-name: animation-background-button-hover;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-direction: reverse;
-  animation-fill-mode: forwards;
-  transform-origin: 0% 100%;
-} 
-
+.button-animation-like-and-memory:hover::after {
+  transform: scaleX(1);
+}
 
 .main-footer {
   display: grid;
@@ -409,48 +331,6 @@
   max-width: 360px;
   padding: 0;
   margin: 0;
-}
-
-.main-footer__button-block:hover::before {  
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: currentColor;
-  animation-name: animation-background-button-hover;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-direction: alternate;
-  transform-origin: 0% 100%;
-  z-index: 1;
-} 
-
-.main-footer__button-block:not(:hover)::after { 
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: currentColor;
-  z-index: 1;
-  animation-name: animation-background-button-hover;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-in-out;
-  animation-direction: reverse;
-  animation-fill-mode: forwards;
-  transform-origin: 0% 100%;
-} 
-
-.main-footer__button-block:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 currentColor;
-  animation-name: header-animation-button-like-and-memory ;
-  animation-duration: 0.3s;
-  animation-timing-function: ease;
-  animation-fill-mode: forwards;
 }
 
 .main-footer__section {
@@ -500,8 +380,7 @@
 }
 
 .main-footer-dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.3);
-  backdrop-filter: blur(7px);
+  background-color: rgb(0 0 0 / 0.75);
 } 
 
 .main-footer__dialog-conteiner {
@@ -520,6 +399,8 @@
   font-weight: 400;
   font-size: 14px;
   color: var(--text-color);
+  text-transform: uppercase;
+  line-height: 21px;
 }
 
 .main-footer__dialog-form {
@@ -540,16 +421,22 @@
 }
 
 @media (width <= 375px) {
-  .footer__section {
+  .header {
+    padding-top: 120px;
+  }
+  .main-footer__section {
     display: grid;
   }
   .main__section-image-text {
     right: 13px;
     top: 25px;
   }
+  .main__section-title {
+    padding: 4px 10px 6px 10px;
+  }
 }
 
-@media (width >= 375px) {
+@media (width >= 500px) {
   :root {
     --header-title-size: 65px;
     --header-text-size: 23px;
@@ -561,6 +448,10 @@
   .main__section-text{
     line-height: 21px;
   }
+  .floppy {
+    width: 21px;
+    height: 21px;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -569,79 +460,11 @@
   }
 }
 
-@supports (-webkit-text-stroke: 1px #fff) {
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
   .main__section-image-text {
     -webkit-text-stroke: 1px var(--color-text-border);
+    text-stroke: 1px var(--color-text-border);
     text-shadow: none;
   }
 }
 
-@keyframes header-animation {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.6;
-  }
-}
-
-@keyframes header-animation-focus {
-  0% {
-    transform: scaleX(0);
-  }
-
-  100% {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes header-animation-arrow {
-  0% {
-    left: -20px;
-  }
-
-  100% {
-    left: -24px;
-  }
-}
-
-@keyframes header-animation-button-like-and-memory {
-  0% {
-    box-shadow: 0px 0px 0 currentColor;
-  }
-
-  100% {
-    box-shadow: 2px 2px 0 currentColor;
-  }
-}
-
-@keyframes animation-background-button-hover {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes animation-like-scale {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.5);
-  }
-}
-
-@keyframes animation-like-sparks {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}

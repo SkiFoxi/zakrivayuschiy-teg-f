@@ -19,6 +19,23 @@
     --header-background-image: url(../svg/background_dark.svg);
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --title-font-width: 785;
+        --text-font-width: 465;
+        --text-color: #00CC14;
+        --icon-color: #00CC14;
+        --text-color-style: #00CC14;
+        --background-color: #000;
+        --background-gradient-subcolor: #000; /*#d3d3d3*/
+        --background-gradient-maincolor:#007f0c, #004306 ; /*#e7e7e7, #1a1a1a*/
+        --like-contour-color: #00CC14;
+        --color-text-border: #000;
+        --header-button-color-active: 0, 204, 20, 0.6;
+        --header-background-image: url(../svg/background_dark.svg);        
+    }
+}
+
 :root.theme-light {
     --title-font-width: 700;
     --text-font-width: 400;
@@ -32,4 +49,21 @@
     --color-text-border: #FFF;
     --header-button-color-active: 0, 0, 0, 0.6;
     --header-background-image: url(../svg/background_light.svg);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --title-font-width: 700;
+        --text-font-width: 400;
+        --text-color: #000;
+        --icon-color: #000;
+        --text-color-style: #FFF;
+        --background-color: #FFF;
+        --background-gradient-subcolor: #d3d3d3 ;
+        --background-gradient-maincolor:#e7e7e7 , #1a1a1a;
+        --like-contour-color: #000;
+        --color-text-border: #FFF;
+        --header-button-color-active: 0, 0, 0, 0.6;
+        --header-background-image: url(../svg/background_light.svg);       
+      }
 }
