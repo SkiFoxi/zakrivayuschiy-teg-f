@@ -41,6 +41,7 @@
     --text-font-width: 400;
     --text-color: #000;
     --icon-color: #000;
+    --footer-dialog-text-color: #FFF;
     --text-color-style: #FFF;
     --background-color: #FFF;
     --background-gradient-subcolor: #d3d3d3 ;
@@ -57,6 +58,7 @@
         --text-font-width: 400;
         --text-color: #000;
         --icon-color: #000;
+        --footer-dialog-text-color: #FFF;
         --text-color-style: #FFF;
         --background-color: #FFF;
         --background-gradient-subcolor: #d3d3d3 ;

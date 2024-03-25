@@ -421,7 +421,6 @@
 .main-footer__dialog-button {
   color: var(--text-color);
   background: none;
-  mix-blend-mode: difference;
   font-family: var(--sub-font-family), sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -431,10 +430,12 @@
 }
 
 .main-footer__dialog-button-text {
+  color: var(--footer-dialog-text-color);
   position: relative;
   mix-blend-mode: difference;
-  z-index: 5;
+  z-index: 1;
 }
+
 @media (width <= 375px) {
   .header {
     padding-top: 120px;
