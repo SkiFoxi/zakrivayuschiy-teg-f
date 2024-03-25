@@ -20,7 +20,7 @@
   margin: auto;
   height: 100%; 
   width: clamp(375px, 100%, 700px);
-  font-family: var(--main-font-family);
+  font-family: var(--main-font-family), sans-serif;
   font-variation-settings: 'wght' var(--text-font-width);
   color: var(--text-color);
   background-image: 
@@ -31,7 +31,6 @@
   background-position: center;
   background-attachment: fixed;
   background-color: var(--background-color);
-  overflow: scroll;
 }
 
 .header {
@@ -40,7 +39,7 @@
   gap: 25px;
   align-items: center;
   justify-content: end;
-  font-family: var(--sub-font-family);
+  font-family: var(--sub-font-family), sans-serif;
   text-transform: uppercase;
   padding-top: 136px;
   font-weight: 400;
@@ -62,6 +61,7 @@
 
 .header__text {
   font-size: var(--header-text-size);
+  font-weight: 400;
 }
 
 .header__theme-menu {
@@ -182,7 +182,7 @@
   position: absolute;
   right: 25px;
   top: 25px;
-  font-family: var(--sub-font-family);
+  font-family: var(--sub-font-family), sans-serif;
   font-weight: 400;
   font-size: 14px;
   opacity: 50%;
@@ -279,6 +279,10 @@
   z-index: 5;
 }
 
+.main__section-text {
+  line-height: 21px;
+}
+
 .text-color-style {
   color: var(--text-color-style);
 }
@@ -286,20 +290,20 @@
 .main__section-button {
 }
 
-.button-animation-like-and-memory {
+.button-animation {
   position: relative;
   transition: box-shadow 0.3s ease;
 }
 
-.button-animation-like-and-memory:focus { /*Анимация кнопки лайка и футера*/
+.button-animation:focus { /*Анимация кнопки лайка и футера*/
   outline: none;
 }
 
-.button-animation-like-and-memory:focus-visible{
+.button-animation:focus-visible{
     box-shadow: 2px 2px 0 currentColor;
 }
 
-.button-animation-like-and-memory::after {
+.button-animation::after {
   content: '';
   position: absolute;
   top: 0;
@@ -313,7 +317,7 @@
   transform: scaleX(0);
 }
 
-.button-animation-like-and-memory:hover::after {
+.button-animation:hover::after {
   transform: scaleX(1);
 }
 
@@ -344,7 +348,7 @@
 
 .main-footer__section-text {
   display: flex;
-  font-family: var(--sub-font-family);
+  font-family: var(--sub-font-family), sans-serif;
   font-weight: 400;
   font-size: 14px;
   align-items: center;
@@ -394,8 +398,13 @@
   display: flex;
 }
 
+.floppy-dialog {
+  height: 39px;
+  width: 39px;
+}
+
 .main-footer__dialog-text {
-  font-family: var(--sub-font-family);
+  font-family: var(--sub-font-family), sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: var(--text-color);
@@ -412,7 +421,8 @@
 .main-footer__dialog-button {
   color: var(--text-color);
   background: none;
-  font-family: var(--sub-font-family);
+  mix-blend-mode: difference;
+  font-family: var(--sub-font-family), sans-serif;
   font-size: 14px;
   font-weight: 400;
   border: 2px solid var(--text-color) ;
@@ -420,6 +430,11 @@
   cursor: pointer;
 }
 
+.main-footer__dialog-button-text {
+  position: relative;
+  mix-blend-mode: difference;
+  z-index: 5;
+}
 @media (width <= 375px) {
   .header {
     padding-top: 120px;
@@ -451,6 +466,10 @@
   .floppy {
     width: 21px;
     height: 21px;
+  }
+  .floppy-dialog {
+    height: 39px;
+    width: 39px;
   }
 }
 

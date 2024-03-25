@@ -18,10 +18,12 @@
 }
 
 .contour {
-    transition: 0.36s;
+    transition-timing-function: linear;
+    transition: 0.1s;
 }
   
 .main-body {
+  transition-timing-function: linear;
   fill: var(--background-color);
   transition: 0.3s;
 }
@@ -37,6 +39,7 @@
 }  
 
 .core {
+  transition-timing-function: linear;
   fill: var(--background-color);
   transition: 0.3s;
 }  
@@ -58,16 +61,20 @@
 }  
 
 .like-icon.is-liked .contour {
-  fill: var(--like-sparks-color);;
+  transition-timing-function: linear;
+  fill: var(--like-sparks-color);
+  transition: 0.3s ;
   transition-delay: 0.06s;
 }  
 
 .like-icon.is-liked .main-body {
-  fill: var(--like-sparks-color);;
+  transition-timing-function: linear;
+  fill: var(--like-sparks-color);
   transition-delay: 0.05s;
 }  
 
 .like-icon.is-liked .core {
+  transition-timing-function: linear;
   fill: var(--like-sparks-color);
 }  
 
