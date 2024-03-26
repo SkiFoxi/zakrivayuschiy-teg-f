@@ -19,13 +19,13 @@
 
 .contour {
     transition-timing-function: linear;
-    transition: 0.1s;
+    transition-duration: 0.1s;
 }
   
 .main-body {
   transition-timing-function: linear;
   fill: var(--background-color);
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }
   
 .main__section-subbutton:hover .main-body {
@@ -41,7 +41,7 @@
 .core {
   transition-timing-function: linear;
   fill: var(--background-color);
-  transition: 0.3s;
+  transition-duration: 0.3s;
 }  
 
 .main__section-subbutton:hover .core {
@@ -63,7 +63,7 @@
 .like-icon.is-liked .contour {
   transition-timing-function: linear;
   fill: var(--like-sparks-color);
-  transition: 0.3s ;
+  transition-duration: 0.3s ;
   transition-delay: 0.06s;
 }  
 

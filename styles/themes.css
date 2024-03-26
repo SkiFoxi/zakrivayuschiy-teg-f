@@ -10,6 +10,7 @@
     --text-color: #00CC14;
     --icon-color: #00CC14;
     --text-color-style: #00CC14;
+    --footer-dialog-text-color: #00CC14;
     --background-color: #000;
     --background-gradient-subcolor: #000; /*#d3d3d3*/
     --background-gradient-maincolor:#007f0c, #004306 ; /*#e7e7e7, #1a1a1a*/
@@ -24,6 +25,7 @@
         --title-font-width: 785;
         --text-font-width: 465;
         --text-color: #00CC14;
+        --footer-dialog-text-color: #00CC14;
         --icon-color: #00CC14;
         --text-color-style: #00CC14;
         --background-color: #000;
@@ -68,4 +70,7 @@
         --header-button-color-active: 0, 0, 0, 0.6;
         --header-background-image: url(../svg/background_light.svg);       
       }
+    .floppy-favicon rect{
+        fill: #00CC14;
+    }
 }

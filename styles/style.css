@@ -87,7 +87,7 @@
   background: none;
   cursor: pointer;
   border: none;
-  font-family: var(--sub-font-family);
+  font-family: var(--sub-font-family), sans-serif;
 }
 
 .theme-menu__button { /*кнопка для анимации*/
@@ -380,7 +380,7 @@
   background-color: var(--background-color);
   border-color: var(--text-color);
   padding: 30px 42px 30px 42px;
-  max-width: clamp(341px, 91vw, 357px);
+  max-width: clamp(341px, 95vw, 357px);
 }
 
 .main-footer-dialog::backdrop {
@@ -410,6 +410,7 @@
   color: var(--text-color);
   text-transform: uppercase;
   line-height: 21px;
+
 }
 
 .main-footer__dialog-form {
@@ -461,6 +462,9 @@
     display: flex;
     background-image: cover;
   }
+  .main-footer-dialog {
+    padding: 30px;
+  }
   .main__section-text{
     line-height: 21px;
   }
@@ -471,12 +475,6 @@
   .floppy-dialog {
     height: 39px;
     width: 39px;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .floppy-favicon rect{
-    fill: #00CC14;
   }
 }
 
